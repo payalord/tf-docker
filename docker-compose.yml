@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  tensorflow:
+    build:
+      context: ./tensorflow
+      dockerfile: Dockerfile
+    container_name: tensorflow
+    image: tensorflow:r2.11
+  tensorflow-addons:
+    build:
+      context: ./tensorflow-addons
+      dockerfile: Dockerfile
+    container_name: tensorflow-addons
+    image: tensorflow-addons:r0.18
+    depends_on:
+      - "tensorflow"
